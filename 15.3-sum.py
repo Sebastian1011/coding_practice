@@ -33,6 +33,27 @@
 # 
 #
 class Solution:
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
-        
-
+    def threeSum(self, nums):
+        result = []
+        nums.sort()
+        for i in range(len(nums) - 2):
+            if nums[i] > 0:
+                break
+            if i>0 and nums[i] == nums[i-1]:
+                continue
+            m = len(nums) - 1
+            for j in range(i + 1, m):
+                if j > i+1 and nums[j] == nums[j -1]:
+                    continue
+                value = nums[i] + nums[j]
+                if value > 0:
+                    break
+                while m > j:
+                    s = value + nums[m]
+                    if s < 0: 
+                        break
+                    if s == 0:
+                        result.append([nums[i], nums[j], nums[m]])
+                        break
+                    m = m - 1
+        return result
