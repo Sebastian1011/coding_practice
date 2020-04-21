@@ -1,3 +1,3 @@
-# leet-code
+# code practice
 
-leet code practice with python3
+code practice with python and java
